@@ -13,4 +13,4 @@ cmake --build .
 
 * libjansson
 * libpng
-* xcb / xcb-image
+* xcb / xcb-image (this static dependency will be removed in a future release to be loaded dynamically at runtime, if available)
