@@ -10,9 +10,10 @@ matrix:
 addons:
   apt:
     packages:
-      - libcairo2-dev
-      - libxcb1-dev
       - libjansson-dev
+      - libxcb1-dev
+      - libxcb-util0-dev
+      - libcairo2-dev
 
 before_script:  
     - mkdir build
