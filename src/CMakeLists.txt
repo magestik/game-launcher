@@ -32,6 +32,5 @@ endif()
 target_link_libraries(GameLauncher PRIVATE jansson)
 
 target_link_libraries(GameLauncher PRIVATE rlottie)
-target_include_directories(GameLauncher PRIVATE ../rlottie/inc)
 
 target_link_libraries(GameLauncher PRIVATE cairo)

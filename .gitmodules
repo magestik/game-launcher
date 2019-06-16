@@ -1,0 +1,3 @@
+[submodule "external/rlottie"]
+	path = external/rlottie
+	url = https://github.com/Samsung/rlottie
