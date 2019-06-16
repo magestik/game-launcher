@@ -1,5 +1,7 @@
 # game-launcher
 
+[![Build Status](https://travis-ci.org/magestik/game-launcher.svg?branch=master)](https://travis-ci.org/magestik/game-launcher)
+
 ## Compilation
 
 <pre>
