@@ -13,4 +13,4 @@ cmake --build .
 
 * libjansson
 * cairo
-* xcb / xcb-image (this static dependency will be removed in a future release to be loaded dynamically at runtime, if available)
+* xcb or Xlib (this static dependency will be removed in a future release to be loaded dynamically at runtime, if available)
