@@ -12,5 +12,5 @@ cmake --build .
 ## Dependencies
 
 * libjansson
-* cairo
 * xcb or Xlib (this static dependency will be removed in a future release to be loaded dynamically at runtime, if available)
+* cairo
