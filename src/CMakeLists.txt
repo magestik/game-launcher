@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.1)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
 
+	find_package(unofficial-cairo CONFIG REQUIRED)
+	find_package(jansson CONFIG REQUIRED)
+
     add_executable(GameLauncher WIN32 main.c settings.c settings.h splashscreen_win32.c splashscreen.h splashscreen_common.c splashscreen_common.h)
+    target_link_libraries(GameLauncher PRIVATE unofficial::cairo::cairo unofficial::cairo::cairo-gobject)
+    target_link_libraries(GameLauncher PRIVATE jansson::jansson)
 
 else ()
 
@@ -22,6 +27,9 @@ else ()
     else()
 	message(FATAL_ERROR "Must enable xcb or Xlib")
     endif()
+	
+	target_link_libraries(GameLauncher PRIVATE cairo)
+	target_link_libraries(GameLauncher PRIVATE jansson)
 
     target_link_libraries(GameLauncher PRIVATE dl)
 
@@ -29,8 +37,5 @@ else ()
 
 endif()
 
-target_link_libraries(GameLauncher PRIVATE jansson)
 
 target_link_libraries(GameLauncher PRIVATE rlottie)
-
-target_link_libraries(GameLauncher PRIVATE cairo)
