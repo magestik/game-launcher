@@ -13,6 +13,7 @@ install:
   - cd %APPVEYOR_BUILD_FOLDER%
   - vcpkg install cairo:x86-windows
   - vcpkg install jansson:x86-windows
+  - git submodule update --init --recursive
 
 before_build:
     - mkdir build
