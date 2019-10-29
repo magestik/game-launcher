@@ -12,6 +12,10 @@
 #include <dlfcn.h>
 #endif // __linux__
 
+#ifdef HAVE_GAMEMODE_CLIENT_H
+#include "gamemode_client.h"
+#endif // HAVE_GAMEMODE_CLIENT_H
+
 #ifdef WIN32
 #include <Windows.h>
 #endif
@@ -290,6 +294,14 @@ int main (int argc, char **argv)
 	}
 	else if (p == 0)
 	{
+#ifdef HAVE_GAMEMODE_CLIENT_H
+		int started = gamemode_request_start();
+		if (started != 0)
+		{
+			printf("Could not start gamemode\n");
+		}
+#endif // HAVE_GAMEMODE_CLIENT_H
+
 		int first_supported_config = find_supported_config(conf);
 
 		fflush(stdout);

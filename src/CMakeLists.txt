@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 
+include(CheckIncludeFile)
+
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
 
 	find_package(unofficial-cairo CONFIG REQUIRED)
@@ -27,6 +29,8 @@ else ()
     else()
 	message(FATAL_ERROR "Must enable xcb or Xlib")
     endif()
+
+    check_include_file("gamemode_client.h" HAVE_GAMEMODE_CLIENT_H)
 	
 	target_link_libraries(GameLauncher PRIVATE cairo)
 	target_link_libraries(GameLauncher PRIVATE jansson)
@@ -35,7 +39,10 @@ else ()
 
     target_compile_options(GameLauncher PRIVATE -Wall -Wextra -Werror)
 
-endif()
+    if (HAVE_GAMEMODE_CLIENT_H)
+	target_compile_definitions(GameLauncher PRIVATE -DHAVE_GAMEMODE_CLIENT_H)
+    endif()
 
+endif()
 
 target_link_libraries(GameLauncher PRIVATE rlottie)
