@@ -7,6 +7,10 @@ cache:
   - c:\Tools\vcpkg\installed
 
 install:
+  - cd C:\Tools\vcpkg
+  - git pull
+  - .\bootstrap-vcpkg.bat
+  - cd %APPVEYOR_BUILD_FOLDER%
   - vcpkg install cairo:x86-windows
   - vcpkg install jansson:x86-windows
 
