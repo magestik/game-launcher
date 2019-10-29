@@ -3,10 +3,17 @@ image: Visual Studio 2015
 matrix:
     fast_finish: true
 
+cache:
+  - c:\Tools\vcpkg\installed
+
+install:
+  - vcpkg install cairo:x86-windows
+  - vcpkg install jansson:x86-windows
+
 before_build:
     - mkdir build
     - cd build
-    - cmake -G "Visual Studio 14 2015" ..
+    - cmake -G "Visual Studio 14 2015" -DCMAKE_TOOLCHAIN_FILE=c:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake ..
 
 build_script: cmake --build .
 
